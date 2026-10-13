@@ -13,6 +13,22 @@ Using the SMS Spam Collection dataset (5,572 messages), this notebook cleans the
 * 80/20 train-test split with evaluation by accuracy, confusion matrix, and classification report
 * A `predict_spam(text)` helper for trying your own messages
 
+## 🔄 Workflow
+
+The notebook pipeline, from raw messages to a spam classifier.
+
+```mermaid
+flowchart TD
+    D[("spam.csv")] --> L["Keep the label and message columns"]
+    L --> M["Map ham to 0 and spam to 1"]
+    M --> P["Preprocess the text<br/>lowercase, drop stopwords, stem"]
+    P --> T["TF-IDF vectorizer"]
+    T --> S["80/20 train-test split"]
+    S --> LR["Train Logistic Regression"]
+    LR --> E["Evaluate<br/>accuracy 94.5%, confusion matrix, report"]
+    LR --> PS(["predict_spam(text) classifies new messages"])
+```
+
 ## 🛠️ Tech Stack
 
 * Language: Python
