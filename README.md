@@ -1,37 +1,89 @@
-# SMS Spam Detection
+# 🚀 SMS Spam Detection
 
-Classifies SMS messages as spam or ham (legitimate) using TF-IDF features and Logistic Regression.
+Classify text messages as spam or legitimate (ham) using TF-IDF features and Logistic Regression.
 
-## Features
+## 📌 Overview
 
-- Trained on the SMS Spam Collection dataset (5,572 messages)
-- Text preprocessing: lowercasing, stopword removal, Porter stemming
-- TF-IDF vectorization (4,900-word vocabulary)
-- **94.5% test accuracy** with Logistic Regression
+Using the SMS Spam Collection dataset (5,572 messages), this notebook cleans the text, converts it to TF-IDF vectors, and trains a Logistic Regression classifier to flag spam.
 
-## Tech Stack
+## ✨ Features
 
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/-scikit--learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-![NLTK](https://img.shields.io/badge/-NLTK-154F3C?style=flat)
-![Jupyter](https://img.shields.io/badge/-Jupyter-F37626?style=flat&logo=jupyter&logoColor=white)
+* Text preprocessing: lowercasing, stopword removal, Porter stemming
+* TF-IDF vectorization (4,900-word vocabulary)
+* 80/20 train-test split with evaluation by accuracy, confusion matrix, and classification report
+* A `predict_spam(text)` helper for trying your own messages
 
-## Project Structure
+## 🛠️ Tech Stack
+
+* Language: Python
+* Libraries: Pandas, NLTK, Scikit-learn
+* Tools: Git, GitHub, Jupyter Notebook
+
+## 📂 Project Structure
 
 ```
-SMSspamcollectionproject.ipynb   # Full pipeline: load data, preprocess, vectorize, train, evaluate
-spam.csv                         # SMS Spam Collection dataset
+spam-detection-project/
+├── SMSspamcollectionproject.ipynb   # full pipeline
+├── spam.csv                         # dataset
+├── requirements.txt
+└── LICENSE
 ```
 
-## Pipeline
+## ⚙️ Installation
 
-1. Load and clean the dataset (`v1`/`v2` columns → `label`/`message`)
-2. Map labels: `ham` → 0, `spam` → 1
-3. Preprocess text: lowercase → tokenize → stem → remove stopwords/non-alphabetic tokens
-4. Vectorize with `TfidfVectorizer`
-5. Train/test split (80/20) and fit a Logistic Regression classifier
-6. Evaluate with accuracy, confusion matrix, and classification report
+1. Clone the repository:
 
-## Getting Started
+```
+git clone https://github.com/JAIMINRSOJITRA/spam-detection-project.git
+```
 
-Open `SMSspamcollectionproject.ipynb` in Jupyter and run all cells. Requires `pandas`, `nltk`, and `scikit-learn`.
+2. Navigate to the project:
+
+```
+cd spam-detection-project
+```
+
+3. Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+## ▶️ Usage
+
+Open the notebook and run all cells:
+
+```
+jupyter notebook SMSspamcollectionproject.ipynb
+```
+
+## 📊 Results / Demo
+
+* **94.5% accuracy** on the held-out test set (measured by running the full pipeline on the included dataset).
+
+## 🧠 What I Learned
+
+* Cleaning and normalizing text for machine learning
+* How TF-IDF turns text into features
+* Reading a confusion matrix, not just accuracy, for an imbalanced problem
+
+## 🔮 Future Improvements
+
+* Compare against Naive Bayes and SVM
+* Keep numbers and symbols as features, since spam often relies on them
+* Wrap the model in a small web app
+
+## 🤝 Contributing
+
+Contributions, issues, and suggestions are welcome.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+Jaimin Sojitra
+
+* GitHub: https://github.com/JAIMINRSOJITRA
+* LinkedIn: https://www.linkedin.com/in/jaimin-sojitra-4683a1277/
